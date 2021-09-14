@@ -23,7 +23,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'machakann/vim-highlightedyank'
 Plugin 'frazrepo/vim-rainbow'
-Plugin 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+Plugin 'shime/vim-livedown'
 call vundle#end()
 
 "setting
@@ -101,8 +101,7 @@ let NERDTreeShowHidden=1
 "key map
 map <F3> :NERDTreeToggle<cr>
 map <F2> :sp<cr>
-nmap <F5> :MarkdownPreview<CR>
-nmap <F6> :MarkdownPreviewStop<CR>
+nmap <F5> :LivedownToggle<CR>
 nmap <F4> :Tagbar<CR>
 map <F8> :set nu<cr>
 map <F7> :set nu!<cr>
