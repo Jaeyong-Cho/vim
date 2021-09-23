@@ -1,6 +1,6 @@
 set shell=/bin/bash
 set nocompatible              " be iMproved, required
-filetype off                  " required
+filetype plugin on                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 
@@ -11,11 +11,10 @@ Plugin 'nanotech/jellybeans.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'airblade/vim-gitgutter' " vim with git status(added, modified, and removed lines)
-Plugin 'tpope/vim-fugitive' " vim with git command(e.g., Gdiff)
+Plugin 'airblade/vim-gitgutter' 
+Plugin 'tpope/vim-fugitive' 
 Plugin 'blueyed/vim-diminactive'
 Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
 Plugin 'cespare/vim-toml'
 Plugin 'elzr/vim-json'
 Plugin 'itchyny/vim-cursorword'
@@ -23,7 +22,9 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'machakann/vim-highlightedyank'
 Plugin 'frazrepo/vim-rainbow'
-Plugin 'shime/vim-livedown'
+Plugin 'vim-scripts/AutoComplPop'
+Plugin 'vimwiki/vimwiki'
+Plugin 'mhinz/vim-startify'
 call vundle#end()
 
 "setting
@@ -43,6 +44,7 @@ set smartindent
 set ruler
 set clipboard=unnamedplus
 set mouse=a
+set cursorline
 colorscheme jellybeans
 
 "cscope
@@ -61,7 +63,6 @@ set csverb
 "ctags
 set tags+=/home/jaeyong/Workspace/tags
 set tags+=./tags
-
 set t_Co=256
 
 "for jellybeans
@@ -98,12 +99,44 @@ let NERDTreeShowHidden=1
 
 "Markdown
 
+"VimWiki
+let maplocalleader = "\\"
+let g:vimwiki_list = [
+  \{
+  \'path': '~/git/wiki/',
+  \'syntax': 'markdown',
+  \'ext': '.md',
+  \'diary_rel_path': './diary',
+  \},
+  \]
+let g:vimwiki_conceallevel = 3
+let g:vimwiki_global_ext = 0
+let g:vmt_list_item_char = '1.'
+let g:tagbar_type_vimwiki = {
+\ 'ctagstype' : 'markdown',
+\ 'kinds'     : [
+\ 'h:headings',
+\ 'l:links',
+\ 'i:images',
+\ ],
+\ 'sort'    : 0
+\ }
+
 "key map
 map <F3> :NERDTreeToggle<cr>
 map <F2> :sp<cr>
-nmap <F5> :LivedownToggle<CR>
 nmap <F4> :Tagbar<CR>
 map <F8> :set nu<cr>
 map <F7> :set nu!<cr>
 nnoremap <C-e> :bp<CR>
 nnoremap <C-r> :bn<CR>
+nnoremap <expr> <Down> pumvisible() ? "<C-n>" : "<Down>"
+nnoremap <expr> <UP> pumvisible() ? "<C-p>" : "<Up>"
+"VimWiki"
+command! WikiIndex :VimwikiIndex
+nmap <LocalLeader>ww <Plug>VimwikiIndex
+nmap <LocalLeader>wi <Plug>VimwikiDiaryIndex
+nmap <LocalLeader>w<LocalLeader>w <Plug>VimwikiMakeDiaryNote
+nmap <LocalLeader>wt :VimwikiTable<CR>
+nmap <LocalLeader>w<LocalLeader>i :VimwikiDiaryGenerateLink<CR>
+nnoremap <S-F4> :execute "VWS /" . expand("<cword>") . "/" <Bar> :lopen<CR>
