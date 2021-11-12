@@ -32,14 +32,17 @@ if has("syntax")
 	syntax on
 endif
 
-set tabstop=2
+set tabstop=1
+set rnu
 set nu
 set hlsearch
 set autoindent
 set cindent
+set shiftwidth=3
+set expandtab
+set history=1000
 set showmatch
 set smartcase
-set smarttab
 set smartindent
 set ruler
 set clipboard=unnamedplus
@@ -56,14 +59,15 @@ set nocsverb
 if filereadable("./cscope.out")
 cs add cscope.out
 else
-cs add /usr/src/linux/cscope.out
+cs add /usr/src/linux-headers-5.11.0-40-generic/cscope.out
 endif
 set csverb
 
 "ctags
-set tags+=/home/jaeyong/Workspace/tags
 set tags+=./tags
+set tags+=/usr/src/linux-headers-5.11.0-40-generic/tags
 set t_Co=256
+autocmd VimEnter * Tagbar
 
 "for jellybeans
 colorscheme jellybeans
@@ -97,8 +101,6 @@ let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 let NERDTreeShowHidden=1
 
-"Markdown
-
 "VimWiki
 let maplocalleader = "\\"
 let g:vimwiki_list = [
@@ -122,12 +124,11 @@ let g:tagbar_type_vimwiki = {
 \ 'sort'    : 0
 \ }
 
+
 "key map
 map <F3> :NERDTreeToggle<cr>
 map <F2> :sp<cr>
 nmap <F4> :Tagbar<CR>
-map <F8> :set nu<cr>
-map <F7> :set nu!<cr>
 nnoremap <C-e> :bp<CR>
 nnoremap <C-r> :bn<CR>
 nnoremap <expr> <Down> pumvisible() ? "<C-n>" : "<Down>"
