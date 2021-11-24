@@ -1,4 +1,4 @@
-set shell=/bin/bash
+
 set nocompatible              " be iMproved, required
 filetype plugin on                  " required
 " set the runtime path to include Vundle and initialize
@@ -23,8 +23,8 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'machakann/vim-highlightedyank'
 Plugin 'frazrepo/vim-rainbow'
 Plugin 'vim-scripts/AutoComplPop'
-Plugin 'vimwiki/vimwiki'
 Plugin 'mhinz/vim-startify'
+Plugin 'puremourning/vimspector'
 call vundle#end()
 
 "setting
@@ -101,43 +101,20 @@ let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 let NERDTreeShowHidden=1
 
-"VimWiki
-let maplocalleader = "\\"
-let g:vimwiki_list = [
-  \{
-  \'path': '~/git/wiki/',
-  \'syntax': 'markdown',
-  \'ext': '.md',
-  \'diary_rel_path': './diary',
-  \},
-  \]
-let g:vimwiki_conceallevel = 3
-let g:vimwiki_global_ext = 0
-let g:vmt_list_item_char = '1.'
-let g:tagbar_type_vimwiki = {
-\ 'ctagstype' : 'markdown',
-\ 'kinds'     : [
-\ 'h:headings',
-\ 'l:links',
-\ 'i:images',
-\ ],
-\ 'sort'    : 0
-\ }
-
+"Vimspector
+let g:vimspector_enable_mappings = 'HUMAN'
 
 "key map
-map <F3> :NERDTreeToggle<cr>
-map <F2> :sp<cr>
-nmap <F4> :Tagbar<CR>
+map <F2> :NERDTreeToggle<cr>
+nmap <F3> :Tagbar<CR>
 nnoremap <C-e> :bp<CR>
 nnoremap <C-r> :bn<CR>
 nnoremap <expr> <Down> pumvisible() ? "<C-n>" : "<Down>"
 nnoremap <expr> <UP> pumvisible() ? "<C-p>" : "<Up>"
-"VimWiki"
-command! WikiIndex :VimwikiIndex
-nmap <LocalLeader>ww <Plug>VimwikiIndex
-nmap <LocalLeader>wi <Plug>VimwikiDiaryIndex
-nmap <LocalLeader>w<LocalLeader>w <Plug>VimwikiMakeDiaryNote
-nmap <LocalLeader>wt :VimwikiTable<CR>
-nmap <LocalLeader>w<LocalLeader>i :VimwikiDiaryGenerateLink<CR>
-nnoremap <S-F4> :execute "VWS /" . expand("<cword>") . "/" <Bar> :lopen<CR>
+nmap <leader>dd :call vimspector#Launch()<CR>
+nmap <leader>dx :VimspectorReset<CR>
+nmap <Leader>di <Plug>VimspectorBalloonEval
+nmap <leader>de :VimspectorEval
+nmap <leader>dw :VimspectorWatch
+nmap <leader>do :VimspectorShowOutput
+nmap <leader>dc :!cc -g -I./libft/libft.h -L./libft/ -lft % -o main<CR>
