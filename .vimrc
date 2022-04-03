@@ -24,6 +24,8 @@ Plugin 'machakann/vim-highlightedyank'
 Plugin 'frazrepo/vim-rainbow'
 Plugin 'vim-scripts/AutoComplPop'
 Plugin 'mhinz/vim-startify'
+Plugin 'osyo-manga/vim-anzu'
+Plugin 'yuttie/comfortable-motion.vim'
 call vundle#end()
 
 "setting
