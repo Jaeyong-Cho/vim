@@ -24,7 +24,6 @@ Plugin 'machakann/vim-highlightedyank'
 Plugin 'frazrepo/vim-rainbow'
 Plugin 'vim-scripts/AutoComplPop'
 Plugin 'mhinz/vim-startify'
-Plugin 'puremourning/vimspector'
 call vundle#end()
 
 "setting
@@ -101,9 +100,6 @@ let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 let NERDTreeShowHidden=1
 
-"Vimspector
-let g:vimspector_enable_mappings = 'HUMAN'
-
 "key map
 map <F2> :NERDTreeToggle<cr>
 nmap <F3> :Tagbar<CR>
@@ -111,10 +107,3 @@ nnoremap <C-e> :bp<CR>
 nnoremap <C-r> :bn<CR>
 nnoremap <expr> <Down> pumvisible() ? "<C-n>" : "<Down>"
 nnoremap <expr> <UP> pumvisible() ? "<C-p>" : "<Up>"
-nmap <leader>dd :call vimspector#Launch()<CR>
-nmap <leader>dx :VimspectorReset<CR>
-nmap <Leader>di <Plug>VimspectorBalloonEval
-nmap <leader>de :VimspectorEval
-nmap <leader>dw :VimspectorWatch
-nmap <leader>do :VimspectorShowOutput
-nmap <leader>dc :!cc -g -I./libft/libft.h -L./libft/ -lft % -o main<CR>
