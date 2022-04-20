@@ -1,4 +1,3 @@
-
 set nocompatible              " be iMproved, required
 filetype plugin on                  " required
 " set the runtime path to include Vundle and initialize
@@ -29,6 +28,15 @@ Plugin 'yuttie/comfortable-motion.vim'
 Plugin 'vim-scripts/grep.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'pangloss/Vim-simplefold'
+Plugin 'iamcco/markdown-preview.nvim'
+"Plugin 'preservim/vim-markdown'
+Plugin 'mzlogin/vim-markdown-toc'
+Plugin 'jkramer/vim-checkbox'
+Plugin 'vimwiki/vimwiki', { 'branch': 'dev' }
+Plugin 'mattn/calendar-vim'
+Plugin 'tools-life/taskwiki'
+Plugin 'blindFS/vim-taskwarrior'
+Plugin 'powerman/vim-plugin-AnsiEsc'
 call vundle#end()
 
 "setting
@@ -89,8 +97,6 @@ let g:indent_guides_guide_size=1
 let g:airline#extensions#tabline#enabled = 1 " turn on buffer list
 let g:airline_theme='jellybeans'
 set laststatus=2 " turn on bottom bar
-nnoremap <leader>q :bp<CR>
-nnoremap <leader>w :bn<CR>
 
 "for blueyed/vim-diminactive
 let g:diminactive_enable_focus = 1
@@ -109,13 +115,64 @@ let NERDTreeShowHidden=1
 set foldmethod=syntax
 set foldnestmax=1
 
+"Markdown Preview
+let g:mkdp_auto_close = 1
+let g:mkdp_filetypes = ['markdown']
+
+"Markdown
+"let g:vim_markdown_folding_disabled = 0
+"let g:vim_markdown_toc_autofit = 1
+"set conceallevel=2
+"let g:vim_markdown_conceal_code_blocks = 1
+"let g:vim_markdown_autowrite = 1
+
+"Markdown Toc
+let g:tagbar_type_markdown = {
+    \ 'ctagstype': 'markdown',
+    \ 'ctagsbin' : '~/.vim/bundle/markdown2ctags/markdown2ctags.py',
+    \ 'ctagsargs' : '-f - --sort=yes --sro=»',
+    \ 'kinds' : [
+        \ 's:sections',
+        \ 'i:images'
+    \ ],
+    \ 'sro' : '»',
+    \ 'kind2scope' : {
+        \ 's' : 'section',
+    \ },
+    \ 'sort': 0,
+\ }
+
+"VimWiki
+let g:vimwiki_list = [{'path': '/mnt/d/GoogleDrive/Notes/','syntax': 'markdown', 'ext': '.md'}]
+au BufNewFile /mnt/d/GoogleDrive/Notes/diary/*.md :silent 0r !~/.vim/bin/generate-vimwiki-diary-template '%'
+au BufNewFile /mnt/d/GoogleDrive/Notes/Wiki/*.md :silent 0r !~/.vim/bin/generate-vimwiki-template '%'
+au BufNewFile /mnt/d/GoogleDrive/Notes/Text/*.md :silent 0r !~/.vim/bin/generate-vimwiki-template '%'
+
+function! VimwikiFindIncompleteTasks()
+  lvimgrep /- \[ \]/ %:p
+  lopen
+endfunction
+
+function! VimwikiFindAllIncompleteTasks()
+  VimwikiSearch /- \[ \]/
+  lopen
+endfunction
+
+"TaskWiki
+
+
 "key map
 map <F2> :NERDTreeToggle<cr>
 nmap <F3> :Tagbar<CR>
+nmap <F4> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
+nnoremap <F5> :execute "VWS /" . expand("<cword>") . "/" <Bar> :lopen<CR>
 nnoremap <C-e> :bp<CR>
-nnoremap <C-r> :bn<CR>
+noremap <C-r> :bn<CR>
+nnoremap <Leader>q :bd<CR>
 
 map <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w) 
 map <Leader>b <Plug>(easymotion-bd-b)  
 nmap <Leader>b <Plug>(easymotion-overwin-b)
+nmap <Leader>wa :call VimwikiFindAllIncompleteTasks()<CR>
+nmap <Leader>wx :call VimwikiFindIncompleteTasks()<CR>
