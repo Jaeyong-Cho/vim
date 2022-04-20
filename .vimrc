@@ -159,7 +159,7 @@ function! VimwikiFindAllIncompleteTasks()
 endfunction
 
 "TaskWiki
-let g:taskwiki_sort_orders={"T": "project+,due-"}/
+let g:taskwiki_sort_orders={"T": "project+,due-"}
 
 "TaskWarrior
 let g:task_log_directory   = '/mnt/d/GoogleDrive/Notes/.task'
