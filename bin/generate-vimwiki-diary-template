@@ -4,9 +4,9 @@ import datetime
 
 template = """# {date}
 
-## Week Goal | project:week 
+## Weekly | +WEEK and -OVERDUE | $T
 
-## Daily | project:daily
+## Daily | +TOMORROW or +TODAY or +OVERDUE | $T
 
 ## Memo"""
 
