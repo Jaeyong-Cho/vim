@@ -26,6 +26,9 @@ Plugin 'vim-scripts/AutoComplPop'
 Plugin 'mhinz/vim-startify'
 Plugin 'osyo-manga/vim-anzu'
 Plugin 'yuttie/comfortable-motion.vim'
+Plugin 'vim-scripts/grep.vim'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'pangloss/Vim-simplefold'
 call vundle#end()
 
 "setting
@@ -37,6 +40,7 @@ set tabstop=1
 set rnu
 set nu
 set hlsearch
+set incsearch
 set autoindent
 set cindent
 set shiftwidth=3
@@ -85,7 +89,6 @@ let g:indent_guides_guide_size=1
 let g:airline#extensions#tabline#enabled = 1 " turn on buffer list
 let g:airline_theme='jellybeans'
 set laststatus=2 " turn on bottom bar
-let mapleader = ","
 nnoremap <leader>q :bp<CR>
 nnoremap <leader>w :bn<CR>
 
@@ -102,10 +105,17 @@ let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 let NERDTreeShowHidden=1
 
+"SimpleFold
+set foldmethod=syntax
+set foldnestmax=1
+
 "key map
 map <F2> :NERDTreeToggle<cr>
 nmap <F3> :Tagbar<CR>
 nnoremap <C-e> :bp<CR>
 nnoremap <C-r> :bn<CR>
-nnoremap <expr> <Down> pumvisible() ? "<C-n>" : "<Down>"
-nnoremap <expr> <UP> pumvisible() ? "<C-p>" : "<Up>"
+
+map <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w) 
+map <Leader>b <Plug>(easymotion-bd-b)  
+nmap <Leader>b <Plug>(easymotion-overwin-b)
