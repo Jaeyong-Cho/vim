@@ -3,5 +3,5 @@
 ## Installation
 
 ```sh
-sudo apt install taskwarrier
+sudo apt install taskwarrior
 ```
