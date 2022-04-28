@@ -37,6 +37,8 @@ Plugin 'mattn/calendar-vim'
 Plugin 'tools-life/taskwiki'
 Plugin 'blindFS/vim-taskwarrior'
 Plugin 'powerman/vim-plugin-AnsiEsc'
+Plugin 'rhysd/vim-grammarous'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 call vundle#end()
 
 "setting
@@ -159,10 +161,10 @@ function! VimwikiFindAllIncompleteTasks()
 endfunction
 
 "TaskWiki
-let g:taskwiki_sort_orders={"T": "project+,due-"}
+let g:taskwiki_sort_orders={"U": "urgency-,due+"}
 
 "TaskWarrior
-let g:task_log_directory   = '/mnt/d/GoogleDrive/Notes/.task'
+let g:task_log_directory   = '/mnt/d/GoogleDrive/Notes/.task/'
 
 "key map
 map <F2> :NERDTreeToggle<cr>
