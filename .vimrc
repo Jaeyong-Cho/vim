@@ -166,6 +166,12 @@ let g:taskwiki_sort_orders={"U": "urgency-,due+"}
 "TaskWarrior
 let g:task_log_directory   = '/mnt/d/GoogleDrive/Notes/.task/'
 
+"C++ Enhanced Highlight
+"let g:cpp_class_scope_highlight = 1
+"let g:cpp_class_decl_highlight = 1
+"let g:cpp_experimental_template_highlight = 1
+let g:cpp_member_variable_highlight = 1                                                                                                                                                                                                                                             
+
 "key map
 map <F2> :NERDTreeToggle<cr>
 nmap <F3> :Tagbar<CR>
