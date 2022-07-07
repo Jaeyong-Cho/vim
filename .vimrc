@@ -1,3 +1,4 @@
+
 set nocompatible              " be iMproved, required
 filetype plugin on                  " required
 " set the runtime path to include Vundle and initialize
@@ -24,20 +25,10 @@ Plugin 'frazrepo/vim-rainbow'
 Plugin 'vim-scripts/AutoComplPop'
 Plugin 'mhinz/vim-startify'
 Plugin 'osyo-manga/vim-anzu'
-Plugin 'yuttie/comfortable-motion.vim'
+"Plugin 'yuttie/comfortable-motion.vim'
 Plugin 'vim-scripts/grep.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'pangloss/Vim-simplefold'
-Plugin 'iamcco/markdown-preview.nvim'
-"Plugin 'preservim/vim-markdown'
-Plugin 'mzlogin/vim-markdown-toc'
-Plugin 'jkramer/vim-checkbox'
-Plugin 'vimwiki/vimwiki', { 'branch': 'dev' }
-Plugin 'mattn/calendar-vim'
-Plugin 'tools-life/taskwiki'
-Plugin 'blindFS/vim-taskwarrior'
-Plugin 'powerman/vim-plugin-AnsiEsc'
-Plugin 'rhysd/vim-grammarous'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 call vundle#end()
 
@@ -63,7 +54,6 @@ set ruler
 set clipboard=unnamedplus
 set mouse=a
 set cursorline
-colorscheme jellybeans
 
 "cscope
 set csprg=/usr/bin/cscope
@@ -82,11 +72,11 @@ set csverb
 set tags+=./tags
 set tags+=/usr/src/linux-headers-5.11.0-40-generic/tags
 set t_Co=256
-autocmd VimEnter * Tagbar
+"autocmd VimEnter * Tagbar
 
 "for jellybeans
 colorscheme jellybeans
-
+let g:jellybeans_use_lowcolor_black = 1
 
 "for indent guide
 let g:indentguides_spacechar = '┆'
@@ -113,77 +103,29 @@ let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 let NERDTreeShowHidden=1
 
-"SimpleFold
+"SimpleFold 
 set foldmethod=syntax
 set foldnestmax=1
-
-"Markdown Preview
-let g:mkdp_auto_close = 1
-let g:mkdp_filetypes = ['markdown']
-
-"Markdown
-"let g:vim_markdown_folding_disabled = 0
-"let g:vim_markdown_toc_autofit = 1
-"set conceallevel=2
-"let g:vim_markdown_conceal_code_blocks = 1
-"let g:vim_markdown_autowrite = 1
-
-"Markdown Toc
-let g:tagbar_type_markdown = {
-    \ 'ctagstype': 'markdown',
-    \ 'ctagsbin' : '~/.vim/bundle/markdown2ctags/markdown2ctags.py',
-    \ 'ctagsargs' : '-f - --sort=yes --sro=»',
-    \ 'kinds' : [
-        \ 's:sections',
-        \ 'i:images'
-    \ ],
-    \ 'sro' : '»',
-    \ 'kind2scope' : {
-        \ 's' : 'section',
-    \ },
-    \ 'sort': 0,
-\ }
-
-"VimWiki
-let g:vimwiki_list = [{'path': '/mnt/d/GoogleDrive/Notes/','syntax': 'markdown', 'ext': '.md'}]
-au BufNewFile /mnt/d/GoogleDrive/Notes/diary/*.md :silent 0r !~/.vim/bin/generate-vimwiki-diary-template '%'
-au BufNewFile /mnt/d/GoogleDrive/Notes/Wiki/*.md :silent 0r !~/.vim/bin/generate-vimwiki-template '%'
-au BufNewFile /mnt/d/GoogleDrive/Notes/Text/*.md :silent 0r !~/.vim/bin/generate-vimwiki-template '%'
-
-function! VimwikiFindIncompleteTasks()
-  lvimgrep /- \[ \]/ %:p
-  lopen
-endfunction
-
-function! VimwikiFindAllIncompleteTasks()
-  VimwikiSearch /- \[ \]/
-  lopen
-endfunction
-
-"TaskWiki
-let g:taskwiki_sort_orders={"U": "urgency-,due+"}
-
-"TaskWarrior
-let g:task_log_directory   = '/mnt/d/GoogleDrive/Notes/.task/'
+set foldlevel=5
 
 "C++ Enhanced Highlight
 "let g:cpp_class_scope_highlight = 1
 "let g:cpp_class_decl_highlight = 1
 "let g:cpp_experimental_template_highlight = 1
-let g:cpp_member_variable_highlight = 1                                                                                                                                                                                                                                             
+let g:cpp_member_variable_highlight = 1
+
+"rainbow
+"au FileType c,cpp,objc,objcpp call rainbow#load()
+"let g:rainbow_active = 1
 
 "key map
 map <F2> :NERDTreeToggle<cr>
 nmap <F3> :Tagbar<CR>
-nmap <F4> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
-nnoremap <F5> :execute "VWS /" . expand("<cword>") . "/" <Bar> :lopen<CR>
-nnoremap <C-e> :bp<CR>
-noremap <C-r> :bn<CR>
+nnoremap <C-h> :bp<CR>
+nnoremap <C-l> :bn<CR>
 nnoremap <Leader>q :bd<CR>
 
-map <Leader>w <Plug>(easymotion-bd-w)
-nmap <Leader>w <Plug>(easymotion-overwin-w) 
-map <Leader>b <Plug>(easymotion-bd-b)  
+map f <Plug>(easymotion-bd-w)
+nmap f <Plug>(easymotion-overwin-w)
+map <Leader>b <Plug>(easymotion-bd-b)
 nmap <Leader>b <Plug>(easymotion-overwin-b)
-nmap <Leader>wa :call VimwikiFindAllIncompleteTasks()<CR>
-nmap <Leader>wx :call VimwikiFindIncompleteTasks()<CR>
