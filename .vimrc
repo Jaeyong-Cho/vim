@@ -1,4 +1,3 @@
-
 set nocompatible              " be iMproved, required
 filetype plugin on                  " required
 " set the runtime path to include Vundle and initialize
@@ -30,6 +29,8 @@ Plugin 'vim-scripts/grep.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'pangloss/Vim-simplefold'
 Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
 call vundle#end()
 
 "setting
@@ -129,3 +130,14 @@ map f <Plug>(easymotion-bd-w)
 nmap f <Plug>(easymotion-overwin-w)
 map <Leader>b <Plug>(easymotion-bd-b)
 nmap <Leader>b <Plug>(easymotion-overwin-b)
+
+"Macro
+"
+"Auto if statement generator
+let @i="iif()\<CR>{\<CR>}\<ESC>ko\<ESC>kki"
+"Auto indent
+let @l="ggVG="
+"Auto std::cout statement generator
+let @s="istd::cout <<  << std::endl;\<ESC>hhhhhhhhhhhhhi\<ESC>li"
+"Auto surround " " in std::cout statement
+let @n="/<<\<CR>Nwi\"\<ESC>nhi\"\<ESC>nn"
