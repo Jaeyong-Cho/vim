@@ -13,5 +13,5 @@ mv ~/.ycm_extra_conf.py ~/.vim/bundle/YouCompleteMe
 
 ## Change Syntax Highlighting Colors
 ```sh
-cp -r ./jellybeans.vim ./vim-cpp-enhanced-highlighting ~/.vim/bundle/
+cp -r ./jellybeans.vim ./vim-cpp-enhanced-highlight ~/.vim/bundle/
 ```
