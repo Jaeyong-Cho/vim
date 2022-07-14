@@ -60,8 +60,8 @@ set mouse=a
 set cursorline
 
 "Scroll
-set sidescrolloff=10 " Keep at least 3 lines left/right
-set scrolloff=10     " Keep at least 3 lines above/below
+set sidescrolloff=15 " Keep at least 15 lines left/right
+set scrolloff=15     " Keep at least 15 lines above/below
 
 "cscope
 set csprg=/usr/bin/cscope
