@@ -8,5 +8,5 @@ python3 install.py --all
 ```
 
 ```sh
-mv ~/.ycm_extra_conf ~/.vim/bundle/YouCompleteMe
+mv ~/.ycm_extra_conf.py ~/.vim/bundle/YouCompleteMe
 ```
