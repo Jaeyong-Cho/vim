@@ -5,35 +5,36 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 "Vundle
 call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
-Plugin 'nathanaelkane/vim-indent-guides'
+"Plugin 'vim-scripts/AutoComplPop'
+"Plugin 'vim-syntastic/syntastic'
+"Plugin 'yuttie/comfortable-motion.vim'
 Plugin 'airblade/vim-gitgutter' 
-Plugin 'tpope/vim-fugitive' 
 Plugin 'blueyed/vim-diminactive'
-Plugin 'godlygeek/tabular'
 Plugin 'cespare/vim-toml'
+Plugin 'easymotion/vim-easymotion'
 Plugin 'elzr/vim-json'
+Plugin 'frazrepo/vim-rainbow'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'godlygeek/tabular'
 Plugin 'itchyny/vim-cursorword'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'machakann/vim-highlightedyank'
+Plugin 'majutsushi/tagbar'
+Plugin 'mhinz/vim-startify'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'osyo-manga/vim-anzu'
+Plugin 'pangloss/Vim-simplefold'
+Plugin 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-fugitive' 
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'machakann/vim-highlightedyank'
-Plugin 'frazrepo/vim-rainbow'
-"Plugin 'vim-scripts/AutoComplPop'
-Plugin 'ycm-core/YouCompleteMe'
-Plugin 'mhinz/vim-startify'
-Plugin 'osyo-manga/vim-anzu'
-"Plugin 'yuttie/comfortable-motion.vim'
 Plugin 'vim-scripts/grep.vim'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'pangloss/Vim-simplefold'
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-endwise'
-"Plugin 'vim-syntastic/syntastic'
+Plugin 'ycm-core/YouCompleteMe'
 call vundle#end()
 
 "setting
@@ -60,8 +61,8 @@ set mouse=a
 set cursorline
 
 "Scroll
-set sidescrolloff=15 " Keep at least 15 lines left/right
-set scrolloff=15     " Keep at least 15 lines above/below
+set sidescrolloff=15 " Keep at least 3 lines left/right
+set scrolloff=15     " Keep at least 3 lines above/below
 
 "cscope
 set csprg=/usr/bin/cscope
@@ -82,10 +83,6 @@ set tags+=./tags
 set tags+=/usr/src/linux-headers-5.11.0-40-generic/tags
 set t_Co=256
 "autocmd VimEnter * Tagbar
-
-"for colorscheme
-colorscheme jellybeans
-let g:jellybeans_use_lowcolor_black = 1
 
 "for indent guide
 let g:indentguides_spacechar = '┆'
@@ -117,11 +114,10 @@ set foldmethod=syntax
 set foldnestmax=1
 set foldlevel=5
 
-
 "C++ Enhanced Highlight
-"let g:cpp_class_scope_highlight = 1
-"let g:cpp_class_decl_highlight = 1
-"let g:cpp_experimental_template_highlight = 1
+let g:cpp_class_scope_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_experimental_template_highlight = 1
 let g:cpp_member_variable_highlight = 1
 
 "rainbow
@@ -168,6 +164,10 @@ let g:ycm_filetype_whitelist = { '*': 1 }
 let g:ycm_key_invoke_completion = '<C-Space>'
 
 set completeopt=longest,menuone,preview
+
+"for colorscheme
+colorscheme jellybeans
+let g:jellybeans_use_lowcolor_black = 1
 
 "key map
 map <F2> :NERDTreeToggle<cr>
