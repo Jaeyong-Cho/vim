@@ -35,6 +35,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/grep.vim'
 Plugin 'ycm-core/YouCompleteMe'
+Plugin 'christoomey/vim-tmux-navigator'
 call vundle#end()
 
 "setting
@@ -172,8 +173,8 @@ let g:jellybeans_use_lowcolor_black = 1
 "key map
 map <F2> :NERDTreeToggle<cr>
 nmap <F3> :Tagbar<CR>
-nnoremap <C-h> :bp<CR>
-nnoremap <C-l> :bn<CR>
+nnoremap <C-i> :bp<CR>
+nnoremap <C-o> :bn<CR>
 nnoremap <Leader>q :bd<CR>
 
 map f <Plug>(easymotion-bd-w)
