@@ -15,3 +15,9 @@ mv ~/.ycm_extra_conf.py ~/.vim/bundle/YouCompleteMe
 ```sh
 cp -r ./jellybeans.vim ./vim-cpp-enhanced-highlight ~/.vim/bundle/
 ```
+
+## Tmux Plugin Instal
+in tmux
+```sh
+<Ctrl-b> I
+```
