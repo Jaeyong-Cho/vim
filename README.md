@@ -1,4 +1,4 @@
-# Vim Configration
+# Vim Configuration
 
 ## Installation
 
@@ -15,7 +15,7 @@ mv ~/.ycm_extra_conf.py ~/.vim/bundle/YouCompleteMe
 ```sh
 cp -r ./jellybeans.vim ./vim-cpp-enhanced-highlight ~/.vim/bundle/
 ```
-
+# Tmux Configuration
 ## Tmux Plugin Install
 in tmux
 ```sh
