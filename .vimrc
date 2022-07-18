@@ -11,6 +11,7 @@ call vundle#begin()
 Plugin 'airblade/vim-gitgutter' 
 Plugin 'blueyed/vim-diminactive'
 Plugin 'cespare/vim-toml'
+Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'elzr/vim-json'
 Plugin 'frazrepo/vim-rainbow'
@@ -18,6 +19,8 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'itchyny/vim-cursorword'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
+Plugin 'junegunn/fzf.vim'
 Plugin 'machakann/vim-highlightedyank'
 Plugin 'majutsushi/tagbar'
 Plugin 'mhinz/vim-startify'
@@ -35,7 +38,6 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/grep.vim'
 Plugin 'ycm-core/YouCompleteMe'
-Plugin 'christoomey/vim-tmux-navigator'
 call vundle#end()
 
 "setting
@@ -169,12 +171,13 @@ set completeopt=longest,menuone,preview
 "for colorscheme
 colorscheme jellybeans
 let g:jellybeans_use_lowcolor_black = 1
+hi Normal guibg=NONE ctermbg=NONE
 
 "key map
 map <F2> :NERDTreeToggle<cr>
 nmap <F3> :Tagbar<CR>
-nnoremap <C-i> :bp<CR>
-nnoremap <C-o> :bn<CR>
+nnoremap <C-o> :bp<CR>
+nnoremap <C-p> :bn<CR>
 nnoremap <Leader>q :bd<CR>
 
 map f <Plug>(easymotion-bd-w)
@@ -185,11 +188,11 @@ nmap <Leader>b <Plug>(easymotion-overwin-b)
 nmap <leader>fw <Plug>(YCMFindSymbolInWorkspace)
 nmap <leader>fd <Plug>(YCMFindSymbolInDocument)
 
+map ; :Files<CR>
+
 "Macro
 "
 "Auto indent
 let @l="ggVG="
 "Auto std::cout statement generator
 let @s="istd::cout <<  << std::endl;\<ESC>hhhhhhhhhhhhhi\<ESC>li"
-
-
