@@ -22,3 +22,8 @@ cp -r ./jellybeans.vim ./vim-cpp-enhanced-highlight ~/.vim/bundle/
 ```sh
 <Ctrl-b> I
 ```
+
+## Tmux pop and set active pane background color
+```sh
+cp -r ./tmux-pop ~/.tmux/plugins
+```
