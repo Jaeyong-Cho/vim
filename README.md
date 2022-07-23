@@ -8,7 +8,7 @@ python3 install.py --all
 ```
 
 ```sh
-cp ./ycm_extra_conf.py ~/.vim/bundle/YouCompleteMe
+cp ./.ycm_extra_conf.py ~/.vim/bundle/YouCompleteMe
 ```
 
 ## Change Syntax Highlighting Colors
