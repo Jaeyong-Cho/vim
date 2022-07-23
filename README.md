@@ -20,6 +20,9 @@ cp -r ./jellybeans.vim ./vim-cpp-enhanced-highlight ~/.vim/bundle/
 # Tmux Configuration
 ## Tmux Plugin Install
 1. install tpm (tmux plugin manager)
+```sh
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
 2. in tmux
 ```sh
 cp ./.tmux.conf ~/
