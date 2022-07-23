@@ -15,10 +15,15 @@ cp ./.ycm_extra_conf.py ~/.vim/bundle/YouCompleteMe
 ```sh
 cp -r ./jellybeans.vim ./vim-cpp-enhanced-highlight ~/.vim/bundle/
 ```
+
+
 # Tmux Configuration
 ## Tmux Plugin Install
 1. install tpm (tmux plugin manager)
 2. in tmux
+```sh
+cp ./.tmux.conf ~/
+```
 ```sh
 <Ctrl-b> I
 ```
